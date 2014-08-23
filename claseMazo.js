@@ -7,7 +7,8 @@ function ficha(a,b) //a <= b
 	}
 
 function Mazo(){
-	this.grupos=1,
+	this.turno=-1,
+	this.fla=false,
 	this.tira=new Array();
 }
 
@@ -49,12 +50,23 @@ Mazo.prototype.repartir = function () {
 	}this.tira=sarra;	  
 }
 
+Mazo.prototype.pon6 = function () {
+	
+
+Mazo.prototype.poner = function () {
+	localiza (this,this.turno);
+	turno++%4;
+}
+
 
 var mano = new Mazo();
 
 mano.crear(); //.ju=5
 mano.barajar(); 
 mano.repartir(); //.ju %4
+if (!mazo.fla) mano.pon6();
+else while (turno)
+mano.poner();
 
 function localiza(ray,jug) {
 	var answ=[];
@@ -72,8 +84,14 @@ function localiza(ray,jug) {
 	}
 return answ;
 }
+
+
 var meno=localiza(mano.tira,2);
-console.log(mano.tira);
+
+
+/*console.log(mano.tira);
 console.log(meno);
 console.log(meno[6]);
 console.log(meno[6][0]);
+*/
+
